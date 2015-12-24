@@ -55,5 +55,5 @@ docs/_build/
 target/
 
 # Custom Ignore Patterns
-[tT]emp/
+[Tt]emp/
 *.json-template
