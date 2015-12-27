@@ -14,8 +14,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -55,3 +53,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Custom Ignore Patterns
+.vagrant/
+[Tt]emp/
+*.json-template

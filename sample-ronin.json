@@ -1,0 +1,23 @@
+{
+  "raw_arguments": [
+    "-a",
+    "-n",
+    "-v"
+  ],
+  "target": "/usr/share/myorg/myproject",
+  "exclude": [
+    ".git",
+    "temp"
+  ],
+  "host": "192.168.56.101",
+  "port": 2222,
+  "verbose": true,
+  "scripts": {
+    "pre-<hook>-event": {
+      ""
+    },
+    "post-<hook>-event": {
+      ""
+    }
+  }
+}
