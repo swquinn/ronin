@@ -55,5 +55,6 @@ docs/_build/
 target/
 
 # Custom Ignore Patterns
+.vagrant/
 [Tt]emp/
 *.json-template

@@ -67,7 +67,7 @@ CLASSIFIERS = [
 ]
 
 version_txt = os.path.join(here, "ronin/version.txt")
-supervisor_version = open(version_txt).read().strip()
+ronin_version = open(version_txt).read().strip()
 
 dist = setup(
     name="ronin",
@@ -92,8 +92,7 @@ dist = setup(
     test_suite="test",
     entry_points={
         "console_scripts": [
-            "ronin = ronin:main",
-            "ronind = ronin.ronind:main",
+            "ronin = ronin.__main__:main",
         ],
     },
 )
