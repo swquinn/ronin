@@ -25,19 +25,19 @@ set -e
 #: The RELEASE_URL is the url that is used to get the install script
 #: to install the release versions of ronin, and the repository is
 #: the branch of ronin to clone and install from source.
-RELEASE_URL=https://github.com/swquinn/ronin/
+RELEASE_URL=https://github.com/swquinn/ronin/releases/download/0.1.0a1/install.sh
 RELEASE_REPO=https://github.com/swquinn/ronin/
 
 #: The TEST_URL is the url that is used to get the install script
 #: to install the test versions of ronin, and the repository is
 #: the branch of ronin to clone and install from source.
-TEST_URL=https://github.com/swquinn/ronin/
+TEST_URL=https://github.com/swquinn/ronin/releases/download/0.1.0a1/install.sh
 TEST_REPO=https://github.com/swquinn/ronin/
 
 #: The EXPERIMENTAL_URL is the url that is used to get the install script
 #: to install the development/experimental versions of ronin, and the repository is
 #: the branch of ronin to clone and install from source.
-EXPERIMENTAL_URL=https://github.com/swquinn/ronin/
+EXPERIMENTAL_URL=https://github.com/swquinn/ronin/releases/download/0.1.0a1/install.sh
 EXPERIMENTAL_REPO=https://github.com/swquinn/ronin/
 
 command_exists() {
