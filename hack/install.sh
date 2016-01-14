@@ -226,8 +226,9 @@ EOF
       (
       set -x
       $sh_c "mkdir -p /tmp/ronin"
+      $sh_c "cd /tmp/ronin"
       $sh_c "git clone $repo ronin_source"
-      $sh_c 'sleep 3; python setup.py install'
+      $sh_c 'sleep 3; python /tmp/ronin/ronin_source/setup.py install'
       )
       echo_ronin_as_nonroot
       exit 0

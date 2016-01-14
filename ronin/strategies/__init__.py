@@ -48,6 +48,23 @@ class FileSyncStrategy(object):
         #: The target directory that this sync handler will copy files to.
         self.target = os.path.abspath(os.path.expanduser(target))
 
+    @property
+    def exclude_paths(self):
+        exclude_paths = list()
+        for exclusion in self.manifest.exclude:
+            path = os.path.abspath(os.path.join(".", exclusion))
+            exclude_paths.append(path)
+        return exclude_paths
+
+    @property
+    def exclude_patterns(self):
+        exclude_paths = self.exclude_paths
+        for path in exclude_paths:
+            if os.path.isdir(path):
+                pattern = os.path.join(path, "*")
+                exclude_paths.append(pattern)
+        return exclude_paths
+
     def invoke(self):
         """
         Handle file synchronization based on the instructions in the

@@ -1,0 +1,15 @@
+{
+  "type": "rsync",
+  "elevate": false,
+  "path": "/home/vagrant/test",
+  "args": ["--verbose", "--archive", "--delete", "-z", "--chmod=ugo=rwX", "--no-perms", "--no-owner", "--no-group"],
+  "exclude": [
+    ".git",
+    ".vagrant",
+    "bin",
+    "build",
+    "dist",
+    "temp",
+    ".DS_Store"
+  ]
+}

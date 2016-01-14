@@ -57,4 +57,6 @@ target/
 # Custom Ignore Patterns
 .vagrant/
 [Tt]emp/
+[Tt]racked/
+[Uu]ntracked/
 *.json-template

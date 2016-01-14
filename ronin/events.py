@@ -25,26 +25,33 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from pprint import pprint
-from watchdog.events import FileSystemEventHandler
+from watchdog.events import FileSystemEventHandler, PatternMatchingEventHandler
+import glob
 import logging
 
 #: The logging apparatus
 logger = logging.getLogger(__name__)
 
 
-class RoninEventHandler(FileSystemEventHandler):
+class RoninEventHandler(PatternMatchingEventHandler):
     """
     A Watchdog file system event handler for performing file synchronization
     based on the file synchronization strategy.
     """
 
-    #def __init__(self, sync_handler):
     def __init__(self, ronin=None):
-        super(RoninEventHandler, self).__init__()
+        super_init = super(RoninEventHandler, self).__init__
+        super_init()
 
         #: Reference to the ronin process that informs this file system
         #: event handler how it should act when an event occurs.
         self.ronin = ronin
+
+        #: Attribute strategy exclude patterns to the ignore patterns of the
+        #: event handler.
+        strategy = self.ronin.strategy
+        self._ignore_patterns = strategy.exclude_patterns
+        logger.debug(self._ignore_patterns)
 
     def on_any_event(self, event):
         super(RoninEventHandler, self).on_any_event(event)

@@ -261,14 +261,17 @@ class Ronin(object):
         logger.info("Goodbye!")
 
     def run_watch(self):
+        schedule_kwargs = {"recursive": True}
         if self.poll:
-            from watchdog.observers.polling import PollingObserver as Observer
+            from ronin.observers.polling import DiscriminatedPollingObserver as Observer
+            schedule_kwargs["exclude_paths"] = self.strategy.exclude_paths
         else:
             from watchdog.observers import Observer
 
+        logger.info("Starting file system observer for: {0}".format(self.source))
         event_handler = RoninEventHandler(self)
         observer = Observer()
-        observer.schedule(event_handler, self.source, recursive=True)
+        observer.schedule(event_handler, self.source, **schedule_kwargs)
         observer.start()
 
         try:
